@@ -7,7 +7,48 @@
     <!-- Use a professional, clean font like Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            scroll-behavior: smooth;
+        }
+
+        /* Basic dark mode styles */
+        body.dark-mode {
+            background-color: #0F172A;
+            color: #E2E8F0;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #1E293B;
+        }
+        
+        .dark-mode .text-gray-900 {
+            color: #E2E8F0;
+        }
+
+        .dark-mode .text-gray-600 {
+            color: #94A3B8;
+        }
+
+        .dark-mode .bg-gray-50 {
+            background-color: #1E293B;
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
     <!-- Header with Navigation -->
@@ -25,12 +66,12 @@
             <div class="flex items-center space-x-4">
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
                     <!-- Moon icon for dark mode -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
                 </button>
                 <button id="menu-toggle" class="md:hidden p-2 rounded-full hover:bg-gray-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
@@ -51,25 +92,25 @@
         <!-- Hero Section -->
         <section id="home" class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between min-h-screen">
             <div class="md:w-1/2">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Hello, I'm <br><span class="text-indigo-600">Kareem Abdou.</span></h1>
-                <p class="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-300">A passionate computer science student and aspiring cybersecurity professional based in Brooklyn, NY.</p>
-                <div class="mt-8 flex space-x-4">
-                    <a href="https://www.linkedin.com/in/kareem-abdou/" target="_blank" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-700 transition-colors">LinkedIn</a>
-                    <a href="https://github.com/kareemabdou03" target="_blank" class="px-6 py-3 text-indigo-600 font-semibold border-2 border-indigo-600 rounded-full hover:bg-indigo-50 transition-colors">GitHub</a>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight animate-fadeInUp">Hello, I'm <br><span class="text-indigo-600">Kareem Abdou.</span></h1>
+                <p class="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-300 animate-fadeInUp" style="animation-delay: 0.2s;">A passionate computer science student and aspiring cybersecurity professional based in Brooklyn, NY.</p>
+                <div class="mt-8 flex space-x-4 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <a href="https://www.linkedin.com/in/kareem-abdou/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-700 transition-colors">LinkedIn</a>
+                    <a href="https://github.com/kareemabdou03" target="_blank" rel="noopener noreferrer" class="px-6 py-3 text-indigo-600 font-semibold border-2 border-indigo-600 rounded-full hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors">GitHub</a>
                 </div>
             </div>
-            <div class="mt-12 md:mt-0 md:w-1/2 flex justify-center">
+            <div class="mt-12 md:mt-0 md:w-1/2 flex justify-center animate-fadeInUp" style="animation-delay: 0.6s;">
                 <!-- Profile image placeholder -->
-                <img src="https://placehold.co/320x320/e2e8f0/fff?text=Add+Your+Photo+Here" alt="Profile photo placeholder" class="rounded-full shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover">
+                <img src="https://placehold.co/320x320/E5E7EB/4B5563?text=Kareem+Abdou" onerror="this.onerror=null; this.src='https://placehold.co/320x320/E5E7EB/4B5563?text=Profile+Image';" alt="A professional profile photo of Kareem Abdou" class="rounded-full shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover" loading="lazy">
             </div>
         </section>
 
         <!-- About Section -->
         <section id="about" class="bg-white py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">About Me</h2>
-                <div class="prose max-w-none md:prose-lg text-center">
-                    <p>I am a speed i need this Computer Science student at the City University of New York, College of Staten Island, with a strong foundation in cybersecurity and networking. My coursework and practical experience have equipped me with skills in threat detection, incident response, and asset management. I'm passionate about securing digital environments and leveraging my technical expertise to solve complex problems.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fadeInUp">About Me</h2>
+                <div class="prose max-w-none md:prose-lg text-center mx-auto text-gray-700 dark:text-gray-300 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <p>I am a dedicated Computer Science student at the City University of New York, College of Staten Island, with a strong foundation in cybersecurity and networking. My coursework and practical experience have equipped me with skills in threat detection, incident response, and asset management. I'm passionate about securing digital environments and leveraging my technical expertise to solve complex problems.</p>
                     <p>My hands-on experience as a Field Support Technician and IT Intern has given me a deep understanding of device management, troubleshooting, and delivering seamless user support. I am eager to apply my skills and continue my professional growth in the cybersecurity field.</p>
                 </div>
             </div>
@@ -78,37 +119,21 @@
         <!-- Skills Section -->
         <section id="skills" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Skills</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fadeInUp">Skills</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     <!-- Skills Card 1: Cybersecurity Tools -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                        <div class="text-center text-indigo-600 dark:text-indigo-400 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm0 18a8 8 0 118-8A8.009 8.009 0 0112 20zm-1-8a1 1 0 012 0v4a1 1 0 01-2 0zm1-7a1 1 0 011 1v2a1 1 0 01-2 0V6a1 1 0 011-1z" />
-                                <path d="M14.5 5.5l-2.73-2.73a.75.75 0 00-1.06 0L8 5.5h-.5A2.5 2.5 0 005 8v8a2.5 2.5 0 002.5 2.5h8A2.5 2.5 0 0018 16V8a2.5 2.5 0 00-2.5-2.5zm-5.75 0l2.73-2.73a.75.75 0 011.06 0L16 5.5h-1v-1a1.5 1.5 0 01-1.5-1.5h-5A1.5 1.5 0 017 4.5v1zM6 8v8a1.5 1.5 0 001.5 1.5h8A1.5 1.5 0 0017 16V8a1.5 1.5 0 00-1.5-1.5h-8A1.5 1.5 0 006 8z"/>
-                                <path fill-rule="evenodd" d="M12 17a5 5 0 100-10 5 5 0 000 10zM12 8a4 4 0 110 8 4 4 0 010-8z" clip-rule="evenodd" />
-                                <path d="M12 18a6 6 0 005.61-3.95A1 1 0 0117 14h-2a1 1 0 01-1-1v-1h2a1 1 0 001-1V9a1 1 0 00-1-1h-2V7h-1V6a1 1 0 00-1-1H9a1 1 0 00-1 1v1H7a1 1 0 00-1 1v2a1 1 0 00-1 1v2a1 1 0 01-1 1v1a1 1 0 011 1h.39A6 6 0 0012 18z" />
-                            </svg>
-                        </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 animate-fadeInUp">
                         <h3 class="text-xl font-semibold mb-4 text-center">Cybersecurity Tools</h3>
                         <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                             <li>Splunk (SIEM)</li>
                             <li>Wireshark</li>
                             <li>IDS/IPS</li>
                             <li>AbuseIPDB</li>
-                            <li>Virustotal</li>
                             <li>Grafana</li>
                         </ul>
                     </div>
                     <!-- Skills Card 2: Threat & Incident Response -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                        <div class="text-center text-indigo-600 dark:text-indigo-400 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21.293 11.293l-4-4a1 1 0 00-1.414 1.414L16.586 11H8a1 1 0 000 2h8.586l-1.707 1.707a1 1 0 101.414 1.414l4-4a1 1 0 000-1.414z" />
-                                <path d="M18 6V4a1 1 0 00-1-1H7a1 1 0 00-1 1v2a1 1 0 001 1h10a1 1 0 001-1zM6 18v2a1 1 0 001 1h10a1 1 0 001-1v-2a1 1 0 00-1-1H7a1 1 0 00-1 1z" />
-                                <path fill-rule="evenodd" d="M12 21a9 9 0 100-18 9 9 0 000 18zM4 12a8 8 0 1116 0 8 8 0 01-16 0z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
                         <h3 class="text-xl font-semibold mb-4 text-center">Threat & Incident Response</h3>
                         <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                             <li>Threat intelligence</li>
@@ -117,29 +142,15 @@
                         </ul>
                     </div>
                     <!-- Skills Card 3: Programming & Scripting -->
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                        <div class="text-center text-indigo-600 dark:text-indigo-400 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14.5 5.5l-2.73-2.73a.75.75 0 00-1.06 0L8 5.5h-.5A2.5 2.5 0 005 8v8a2.5 2.5 0 002.5 2.5h8A2.5 2.5 0 0018 16V8a2.5 2.5 0 00-2.5-2.5zm-5.75 0l2.73-2.73a.75.75 0 011.06 0L16 5.5h-1v-1a1.5 1.5 0 01-1.5-1.5h-5A1.5 1.5 0 017 4.5v1zM6 8v8a1.5 1.5 0 001.5 1.5h8A1.5 1.5 0 0017 16V8a1.5 1.5 0 00-1.5-1.5h-8A1.5 1.5 0 006 8z"/>
-                                <path d="M9 10a1 1 0 11-2 0 1 1 0 012 0zm5 0a1 1 0 11-2 0 1 1 0 012 0zm-5 4a1 1 0 11-2 0 1 1 0 012 0zm5 4a1 1 0 11-2 0 1 1 0 012 0z" />
-                                <path fill-rule="evenodd" d="M12 17a5 5 0 100-10 5 5 0 000 10zM12 8a4 4 0 110 8 4 4 0 010-8z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
                         <h3 class="text-xl font-semibold mb-4 text-center">Programming & Scripting</h3>
                         <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                             <li>Python</li>
-                            <li>Bash (automation, and alerting)</li>
+                            <li>Bash scripting</li>
                         </ul>
                     </div>
-                     <!-- Skills Card 4: Asset and Endpoint Management -->
-                     <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                        <div class="text-center text-indigo-600 dark:text-indigo-400 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM5 5h14v14H5zm12 2v2a2 2 0 01-2 2h-4a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2zm-2 2h-4V7h4zM8 13h8v2H8zM8 17h8v2H8z" />
-                                <path fill-rule="evenodd" d="M15 11h-2v-2h-2v2H9v2h2v2h2v-2h2v-2z" clip-rule="evenodd" />
-                                <path d="M15 11h-2v-2h-2v2H9v2h2v2h2v-2h2v-2z" />
-                            </svg>
-                        </div>
+                    <!-- Skills Card 4: Asset and Endpoint Management -->
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
                         <h3 class="text-xl font-semibold mb-4 text-center">Asset & Endpoint Management</h3>
                         <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                             <li>ServiceNow</li>
@@ -154,23 +165,29 @@
         <!-- Certifications Section -->
         <section id="certifications" class="bg-white py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Certifications</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fadeInUp">Certifications</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
                     <!-- Certification Card 1 -->
-                    <div class="block bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center hover:bg-gray-200 transition-colors duration-300 hover:scale-105 transform group">
-                        <img src="https://placehold.co/150x150/7c3aed/fff?text=CompTIA" alt="CompTIA Network+ logo" class="mx-auto mb-4 w-24 h-24 rounded-full">
+                    <a href="https://verify.comptia.org/" target="_blank" rel="noopener noreferrer" class="block bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 hover:scale-105 transform group animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <img src="https://placehold.co/150x150/7c3aed/fff?text=CompTIA" onerror="this.onerror=null; this.src='https://placehold.co/150x150/7c3aed/fff?text=CompTIA';" alt="CompTIA Network+ logo" class="mx-auto mb-4 w-24 h-24 rounded-full" loading="lazy">
                         <h3 class="text-xl font-semibold">CompTIA Network+</h3>
-                    </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">Certified: September 13, 2024</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Verify: VBMRX18TH21416S2</p>
+                    </a>
                     <!-- Certification Card 2 -->
-                    <div class="block bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center hover:bg-gray-200 transition-colors duration-300 hover:scale-105 transform group">
-                        <img src="https://placehold.co/150x150/7c3aed/fff?text=CompTIA" alt="CompTIA Security+ logo" class="mx-auto mb-4 w-24 h-24 rounded-full">
+                    <a href="https://verify.comptia.org/" target="_blank" rel="noopener noreferrer" class="block bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 hover:scale-105 transform group animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <img src="https://placehold.co/150x150/7c3aed/fff?text=CompTIA" onerror="this.onerror=null; this.src='https://placehold.co/150x150/7c3aed/fff?text=CompTIA';" alt="CompTIA Security+ logo" class="mx-auto mb-4 w-24 h-24 rounded-full" loading="lazy">
                         <h3 class="text-xl font-semibold">CompTIA Security+</h3>
-                    </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">Certified: February 26, 2025</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Verify: P6G8PH75QF1419G3</p>
+                    </a>
                     <!-- Certification Card 3 -->
-                    <div class="block bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center hover:bg-gray-200 transition-colors duration-300 hover:scale-105 transform group">
-                        <img src="https://placehold.co/150x150/7c3aed/fff?text=Cisco" alt="Cisco Certified logo" class="mx-auto mb-4 w-24 h-24 rounded-full">
+                    <a href="https://verify.certiport.com/" target="_blank" rel="noopener noreferrer" class="block bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 hover:scale-105 transform group animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <img src="https://placehold.co/150x150/1d4ed8/fff?text=Cisco" onerror="this.onerror=null; this.src='https://placehold.co/150x150/1d4ed8/fff?text=Cisco';" alt="Cisco Certified logo" class="mx-auto mb-4 w-24 h-24 rounded-full" loading="lazy">
                         <h3 class="text-xl font-semibold">Cisco Certified Support Technician Cybersecurity</h3>
-                    </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">Certified: December 11, 2023</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Verify: DTS8-XaBU</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -178,28 +195,25 @@
         <!-- Experience Section -->
         <section id="experience" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Experience</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fadeInUp">Experience</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <!-- Experience 1 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md animate-fadeInUp">
                         <h3 class="text-xl font-semibold">Field Support Technician</h3>
                         <p class="text-gray-600 dark:text-gray-400">ICP Inc. | June 2025 - Present</p>
                         <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700 dark:text-gray-300">
-                            <li>Configured and validated hotspot and smartphone devices in preparation for deployment, ensuring reliability and
- readiness for client use.</li>
-                            <li>Performed on-site device transitions for government agencies, including secure data transfers and full setup of new
- T-Mobile phones for employees migrating from Verizon.</li>
-                            <li>Delivered over 1,800 successful device migrations at the NYC Department of Buildings with a 99% success rate,
- ensuring seamless user adoption and minimal downtime.</li>
+                            <li>Configured and validated hotspot and smartphone devices in preparation for deployment, ensuring reliability and readiness for client use.</li>
+                            <li>Performed on-site device transitions for government agencies, including secure data transfers and full setup of new T-Mobile phones for employees migrating from Verizon.</li>
+                            <li>Delivered over 1,800 successful device migrations at the NYC Department of Buildings with a 99% success rate, ensuring seamless user adoption and minimal downtime.</li>
                         </ul>
                     </div>
                     <!-- Experience 2 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md animate-fadeInUp" style="animation-delay: 0.2s;">
                         <h3 class="text-xl font-semibold">IT Intern</h3>
                         <p class="text-gray-600 dark:text-gray-400">MSI Net Inc. | June 2024 - August 2024</p>
                         <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700 dark:text-gray-300">
                             <li>Performed device imaging and troubleshooting for Windows laptops and desktops.</li>
-                            <li>Updated and tracked 300+ hardware assets in ServiceNow.</li>
+                            <li>Updated and tracked 300+ hardware assets in ServiceNow, conducting weekly inventory audits with 98% accuracy.</li>
                             <li>Assisted with repairs, device replacements, and warehouse organization.</li>
                         </ul>
                     </div>
@@ -210,33 +224,33 @@
         <!-- Projects Section -->
         <section id="projects" class="bg-white py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Projects</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fadeInUp">Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Project Card 1: The Data Dig -->
-                    <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/292524/fff?text=The+Data+Dig" alt="The Data Dig Project" class="w-full h-48 object-cover">
+                    <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 animate-fadeInUp">
+                        <img src="https://placehold.co/600x400/292524/fff?text=The+Data+Dig" onerror="this.onerror=null; this.src='https://placehold.co/600x400/292524/fff?text=The+Data+Dig';" alt="A project graphic for The Data Dig" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold mb-2">The Data Dig</h3>
                             <p class="text-gray-600 dark:text-gray-400">Conducted a full security analysis using the CICIDS2017 dataset, following AWS Incident Response Playbook Samples to detect, analyze, and respond to cybersecurity threats.</p>
-                            <a href="https://github.com/kareemabdou03" target="_blank" class="inline-block mt-4 text-indigo-600 font-semibold hover:underline">View on GitHub &rarr;</a>
+                            <a href="https://github.com/kareemabdou03" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-indigo-600 font-semibold hover:underline">View on GitHub &rarr;</a>
                         </div>
                     </article>
                     <!-- Project Card 2: Solar Winds Sentinel -->
-                    <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/292524/fff?text=Solar+Winds+Sentinel" alt="Solar Winds Sentinel Project" class="w-full h-48 object-cover">
+                    <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <img src="https://placehold.co/600x400/292524/fff?text=Solar+Winds+Sentinel" onerror="this.onerror=null; this.src='https://placehold.co/600x400/292524/fff?text=Solar+Winds+Sentinel';" alt="A project graphic for Solar Winds Sentinel" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold mb-2">Solar Winds Sentinel</h3>
                             <p class="text-gray-600 dark:text-gray-400">Conducted an in-depth investigation of SolarWinds attack IOCs, using Splunk to detect potential compromises and developed a Splunk dashboard to continuously monitor for SolarWinds IOCs.</p>
-                            <a href="https://github.com/kareemabdou03" target="_blank" class="inline-block mt-4 text-indigo-600 font-semibold hover:underline">View on GitHub &rarr;</a>
+                            <a href="https://github.com/kareemabdou03" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-indigo-600 font-semibold hover:underline">View on GitHub &rarr;</a>
                         </div>
                     </article>
                     <!-- Project Card 3: File Integrity Monitoring -->
-                    <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/292524/fff?text=File+Integrity+Monitoring" alt="File Integrity Monitoring Project" class="w-full h-48 object-cover">
+                    <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <img src="https://placehold.co/600x400/292524/fff?text=File+Integrity+Monitoring" onerror="this.onerror=null; this.src='https://placehold.co/600x400/292524/fff?text=File+Integrity+Monitoring';" alt="A project graphic for File Integrity Monitoring" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold mb-2">File Integrity Monitoring</h3>
                             <p class="text-gray-600 dark:text-gray-400">Used open-source code to simulate scripted attacks to modify files, and set up a HIDS to monitor changes and analyze logs, identifying modified files.</p>
-                            <a href="https://github.com/kareemabdou03" target="_blank" class="inline-block mt-4 text-indigo-600 font-semibold hover:underline">View on GitHub &rarr;</a>
+                            <a href="https://github.com/kareemabdou03" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-indigo-600 font-semibold hover:underline">View on GitHub &rarr;</a>
                         </div>
                     </article>
                 </div>
@@ -246,12 +260,12 @@
         <!-- Contact Section -->
         <section id="contact" class="py-20">
             <div class="container mx-auto px-6 max-w-2xl text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">I'm currently open to new opportunities. Feel free to reach out via email, LinkedIn, or GitHub.</p>
-                <div class="flex justify-center space-x-4">
-                    <a href="mailto:kareemussama79@gmail.com" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-700 transition-colors">Email</a>
-                    <a href="https://www.linkedin.com/in/kareem-abdou/" target="_blank" class="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-lg hover:bg-blue-800 transition-colors">LinkedIn</a>
-                    <a href="https://github.com/kareemabdou03" target="_blank" class="px-6 py-3 bg-gray-800 text-white font-semibold rounded-full shadow-lg hover:bg-gray-900 transition-colors">GitHub</a>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fadeInUp">Get in Touch</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 animate-fadeInUp" style="animation-delay: 0.2s;">I'm currently open to new opportunities. Feel free to reach out via email, LinkedIn, or GitHub.</p>
+                <div class="flex justify-center flex-wrap space-x-2 sm:space-x-4 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <button id="copy-email-btn" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-700 transition-colors mb-2">Copy Email</button>
+                    <a href="https://www.linkedin.com/in/kareem-abdou/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-lg hover:bg-blue-800 transition-colors mb-2">LinkedIn</a>
+                    <a href="https://github.com/kareemabdou03" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-gray-800 text-white font-semibold rounded-full shadow-lg hover:bg-gray-900 transition-colors mb-2">GitHub</a>
                 </div>
             </div>
         </section>
@@ -264,6 +278,55 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Check for saved theme preference or set dark mode as default
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || savedTheme === null) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark'); // Persist the default choice
+            }
+
+            // Dark mode toggle functionality
+            themeToggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Mobile menu toggle
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuToggleBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+            });
+            
+            // Function to copy email to clipboard
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            copyEmailBtn.addEventListener('click', () => {
+                const email = 'kareemussama79@gmail.com';
+                const tempInput = document.createElement('input');
+                tempInput.value = email;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                try {
+                    document.execCommand('copy');
+                    copyEmailBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyEmailBtn.textContent = 'Copy Email';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text:', err);
+                }
+                document.body.removeChild(tempInput);
+            });
+        });
+    </script>
 </body>
 </html>
