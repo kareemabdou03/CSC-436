@@ -50,7 +50,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900 dark-mode">
     <!-- Header with Navigation -->
     <header class="bg-white shadow-lg py-4 fixed w-full top-0 z-50">
         <nav class="container mx-auto flex justify-between items-center px-6">
@@ -283,11 +283,12 @@
             const themeToggleBtn = document.getElementById('theme-toggle');
             const body = document.body;
 
-            // Check for saved theme preference or set dark mode as default
+            // Check for saved theme preference
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || savedTheme === null) {
+            if (savedTheme === 'light') {
+                body.classList.remove('dark-mode');
+            } else {
                 body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark'); // Persist the default choice
             }
 
             // Dark mode toggle functionality
