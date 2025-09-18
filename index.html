@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -100,8 +100,8 @@
                 </div>
             </div>
             <div class="mt-12 md:mt-0 md:w-1/2 flex justify-center animate-fadeInUp" style="animation-delay: 0.6s;">
-                <!-- Profile image placeholder -->
-                <img src="https://placehold.co/320x320/E5E7EB/4B5563?text=Kareem+Abdou" onerror="this.onerror=null; this.src='https://placehold.co/320x320/E5E7EB/4B5563?text=Profile+Image';" alt="A professional profile photo of Kareem Abdou" class="rounded-full shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover" loading="lazy">
+                <!-- Profile image -->
+                <img src="https://placehold.co/600x400/292524/fff?text=Kareem+Abdou" alt="A professional profile photo of Kareem Abdou" class="rounded-full shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover" loading="lazy">
             </div>
         </section>
 
@@ -274,7 +274,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2024 Kareem Abdou. All rights reserved.</p>
+            <p id="copyright-year">&copy; 2024 Kareem Abdou. All rights reserved.</p>
         </div>
     </footer>
 
@@ -327,6 +327,13 @@
                 }
                 document.body.removeChild(tempInput);
             });
+
+            // Set the dynamic year in the footer
+            const copyrightElement = document.getElementById('copyright-year');
+            const currentYear = new Date().getFullYear();
+            if (copyrightElement) {
+                copyrightElement.textContent = `© ${currentYear} Kareem Abdou. All rights reserved.`;
+            }
         });
     </script>
 </body>
